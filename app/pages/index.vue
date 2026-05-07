@@ -385,7 +385,7 @@ const nav = [
           <div class="mt-10 flex justify-center">
             <UButton
               to="/certificates"
-              label="Смотреть все сертификаты"
+              label="Смотреть больше"
               color="primary"
               variant="outline"
               size="xl"
@@ -445,7 +445,7 @@ const nav = [
           <div class="mt-10 flex justify-center">
             <UButton
               to="/works"
-              label="Смотреть все работы"
+              label="Смотреть больше"
               color="primary"
               variant="outline"
               size="xl"
