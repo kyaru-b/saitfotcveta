@@ -147,7 +147,7 @@ const nav = [
             <div class="absolute inset-2 rounded-full border-2 border-[#bfdbfe]" />
             <div class="absolute inset-2 rounded-full border-2 border-transparent border-t-[#2563eb] animate-spin" />
             <UIcon
-              name="i-lucide-heart-pulse"
+              name="i-ph-tooth-fill"
               class="relative size-9 text-[#2563eb]"
             />
           </div>
@@ -184,7 +184,7 @@ const nav = [
             aria-label="Ислам Гаев"
           >
             <UIcon
-              name="i-lucide-heart-pulse"
+              name="i-ph-tooth-fill"
               class="size-6 shrink-0"
             />
             <span class="text-xs font-medium tracking-[0.18em] uppercase sm:text-sm">
