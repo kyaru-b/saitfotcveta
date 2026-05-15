@@ -1,0 +1,732 @@
+import { a as _sfc_main$d, _ as __nuxt_component_0$1, d as _sfc_main$8, b as useAppConfig, c as useComponentUI, t as tv, P as Primitive } from './server.mjs';
+import { _ as _sfc_main$2 } from './Container-B5vu2UPU.mjs';
+import { defineComponent, ref, withCtx, createVNode, createTextVNode, toDisplayString, openBlock, createBlock, Fragment, renderList, useSlots, computed, unref, mergeProps, renderSlot, createCommentVNode, useSSRContext } from 'vue';
+import { ssrRenderAttrs, ssrRenderComponent, ssrRenderList, ssrInterpolate, ssrRenderAttr, ssrRenderStyle, ssrRenderClass, ssrRenderSlot } from 'vue/server-renderer';
+import { p as publicAssetsURL } from '../_/nitro.mjs';
+import 'vue-router';
+import '@iconify/vue';
+import 'tailwindcss/colors';
+import '@vueuse/core';
+import '@vueuse/shared';
+import 'tailwind-variants';
+import '@iconify/utils/lib/css/icon';
+import '../routes/renderer.mjs';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'devalue';
+import 'unhead/plugins';
+import 'unhead/utils';
+import 'node:http';
+import 'node:https';
+import 'node:events';
+import 'node:buffer';
+import 'node:fs';
+import 'node:url';
+import '@iconify/utils';
+import 'node:crypto';
+import 'consola';
+import 'node:path';
+
+const theme = {
+  "slots": {
+    "root": "rounded-lg overflow-hidden",
+    "header": "p-4 sm:px-6",
+    "title": "text-highlighted font-semibold",
+    "description": "mt-1 text-muted text-sm",
+    "body": "p-4 sm:p-6",
+    "footer": "p-4 sm:px-6"
+  },
+  "variants": {
+    "variant": {
+      "solid": {
+        "root": "bg-inverted text-inverted",
+        "title": "text-inverted",
+        "description": "text-dimmed"
+      },
+      "outline": {
+        "root": "bg-default ring ring-default divide-y divide-default"
+      },
+      "soft": {
+        "root": "bg-elevated/50 divide-y divide-default"
+      },
+      "subtle": {
+        "root": "bg-elevated/50 ring ring-default divide-y divide-default"
+      }
+    }
+  },
+  "defaultVariants": {
+    "variant": "outline"
+  }
+};
+const _sfc_main$1 = {
+  __name: "UCard",
+  __ssrInlineRender: true,
+  props: {
+    as: { type: null, required: false },
+    title: { type: String, required: false },
+    description: { type: String, required: false },
+    variant: { type: null, required: false },
+    class: { type: null, required: false },
+    ui: { type: Object, required: false }
+  },
+  setup(__props) {
+    const props = __props;
+    const slots = useSlots();
+    const appConfig = useAppConfig();
+    const uiProp = useComponentUI("card", props);
+    const ui = computed(() => tv({ extend: tv(theme), ...appConfig.ui?.card || {} })({
+      variant: props.variant
+    }));
+    return (_ctx, _push, _parent, _attrs) => {
+      _push(ssrRenderComponent(unref(Primitive), mergeProps({
+        as: __props.as,
+        "data-slot": "root",
+        class: ui.value.root({ class: [unref(uiProp)?.root, props.class] })
+      }, _attrs), {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            if (!!slots.header || (__props.title || !!slots.title) || (__props.description || !!slots.description)) {
+              _push2(`<div data-slot="header" class="${ssrRenderClass(ui.value.header({ class: unref(uiProp)?.header }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "header", {}, () => {
+                if (__props.title || !!slots.title) {
+                  _push2(`<div data-slot="title" class="${ssrRenderClass(ui.value.title({ class: unref(uiProp)?.title }))}"${_scopeId}>`);
+                  ssrRenderSlot(_ctx.$slots, "title", {}, () => {
+                    _push2(`${ssrInterpolate(__props.title)}`);
+                  }, _push2, _parent2, _scopeId);
+                  _push2(`</div>`);
+                } else {
+                  _push2(`<!---->`);
+                }
+                if (__props.description || !!slots.description) {
+                  _push2(`<div data-slot="description" class="${ssrRenderClass(ui.value.description({ class: unref(uiProp)?.description }))}"${_scopeId}>`);
+                  ssrRenderSlot(_ctx.$slots, "description", {}, () => {
+                    _push2(`${ssrInterpolate(__props.description)}`);
+                  }, _push2, _parent2, _scopeId);
+                  _push2(`</div>`);
+                } else {
+                  _push2(`<!---->`);
+                }
+              }, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            if (!!slots.default) {
+              _push2(`<div data-slot="body" class="${ssrRenderClass(ui.value.body({ class: unref(uiProp)?.body }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "default", {}, null, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+            if (!!slots.footer) {
+              _push2(`<div data-slot="footer" class="${ssrRenderClass(ui.value.footer({ class: unref(uiProp)?.footer }))}"${_scopeId}>`);
+              ssrRenderSlot(_ctx.$slots, "footer", {}, null, _push2, _parent2, _scopeId);
+              _push2(`</div>`);
+            } else {
+              _push2(`<!---->`);
+            }
+          } else {
+            return [
+              !!slots.header || (__props.title || !!slots.title) || (__props.description || !!slots.description) ? (openBlock(), createBlock("div", {
+                key: 0,
+                "data-slot": "header",
+                class: ui.value.header({ class: unref(uiProp)?.header })
+              }, [
+                renderSlot(_ctx.$slots, "header", {}, () => [
+                  __props.title || !!slots.title ? (openBlock(), createBlock("div", {
+                    key: 0,
+                    "data-slot": "title",
+                    class: ui.value.title({ class: unref(uiProp)?.title })
+                  }, [
+                    renderSlot(_ctx.$slots, "title", {}, () => [
+                      createTextVNode(toDisplayString(__props.title), 1)
+                    ])
+                  ], 2)) : createCommentVNode("", true),
+                  __props.description || !!slots.description ? (openBlock(), createBlock("div", {
+                    key: 1,
+                    "data-slot": "description",
+                    class: ui.value.description({ class: unref(uiProp)?.description })
+                  }, [
+                    renderSlot(_ctx.$slots, "description", {}, () => [
+                      createTextVNode(toDisplayString(__props.description), 1)
+                    ])
+                  ], 2)) : createCommentVNode("", true)
+                ])
+              ], 2)) : createCommentVNode("", true),
+              !!slots.default ? (openBlock(), createBlock("div", {
+                key: 1,
+                "data-slot": "body",
+                class: ui.value.body({ class: unref(uiProp)?.body })
+              }, [
+                renderSlot(_ctx.$slots, "default")
+              ], 2)) : createCommentVNode("", true),
+              !!slots.footer ? (openBlock(), createBlock("div", {
+                key: 2,
+                "data-slot": "footer",
+                class: ui.value.footer({ class: unref(uiProp)?.footer })
+              }, [
+                renderSlot(_ctx.$slots, "footer")
+              ], 2)) : createCommentVNode("", true)
+            ];
+          }
+        }),
+        _: 3
+      }, _parent));
+    };
+  }
+};
+const _sfc_setup$1 = _sfc_main$1.setup;
+_sfc_main$1.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("../node_modules/@nuxt/ui/dist/runtime/components/Card.vue");
+  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
+};
+const _imports_0 = publicAssetsURL("/images/doctor/doctor.jpg");
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const isLoading = ref(true);
+    const certificates = [
+      { title: "Аккредитация специалиста", image: "/images/certificates/certificate-01.jpg" },
+      { title: "Диплом и профессиональная подготовка", image: "/images/certificates/certificate-02.jpg" },
+      { title: "Сертификат по хирургической стоматологии", image: "/images/certificates/certificate-03.jpg" },
+      { title: "Повышение квалификации", image: "/images/certificates/certificate-04.jpg" },
+      { title: "Профессиональное обучение", image: "/images/certificates/certificate-05.jpg" },
+      { title: "Стоматологическая практика", image: "/images/certificates/certificate-06.jpg" },
+      { title: "Диплом врача", image: "/images/certificates/certificate-07.jpg" },
+      { title: "Сертификат Ankelos", image: "/images/certificates/certificate-08.jpg" },
+      { title: "Сертификат Ankelos", image: "/images/certificates/certificate-09.jpg" },
+      { title: "Сертификат Nobel", image: "/images/certificates/certificate-10.jpg" }
+    ];
+    const principles = [
+      "Подробно объясняю план лечения и показываю этапы на снимках",
+      "Работаю с имплантацией, хирургией и восстановлением улыбки",
+      "Внимательно веду пациента от консультации до финального результата"
+    ];
+    const experience = [
+      {
+        year: "2014",
+        title: "Медицинское образование",
+        text: "Базовая подготовка по стоматологии и дальнейшая специализация в хирургическом направлении."
+      },
+      {
+        year: "2016",
+        title: "Хирургическая стоматология",
+        text: "Практика сложных удалений, имплантации и подготовки пациентов к ортопедическому лечению."
+      },
+      {
+        year: "2017-2026",
+        title: "Частная стоматологическая практика",
+        text: "Клинические случаи, восстановление зубного ряда и комплексное планирование лечения."
+      }
+    ];
+    const works = [
+      {
+        title: "Кейс 1",
+        text: "Восстановление эстетики фронтального отдела.",
+        photos: [
+          "/images/cases/1/photo-01.jpg",
+          "/images/cases/1/photo-02.jpg",
+          "/images/cases/1/photo-03.jpg"
+        ]
+      },
+      {
+        title: "Кейс 2",
+        text: "Комплексная работа с зубным рядом и прикусом.",
+        photos: [
+          "/images/cases/2/photo-01.jpg",
+          "/images/cases/2/photo-02.jpg",
+          "/images/cases/2/photo-03.jpg",
+          "/images/cases/2/photo-04.jpg"
+        ]
+      },
+      {
+        title: "Кейс 3",
+        text: "Фотопротокол лечения с несколькими клиническими этапами.",
+        photos: [
+          "/images/cases/3/photo-01.jpg",
+          "/images/cases/3/photo-02.jpg",
+          "/images/cases/3/photo-03.jpg",
+          "/images/cases/3/photo-04.jpg"
+        ]
+      },
+      {
+        title: "Кейс 4",
+        text: "Хирургический этап и контроль результата.",
+        photos: [
+          "/images/cases/4/photo-01.jpg",
+          "/images/cases/4/photo-02.jpg",
+          "/images/cases/4/photo-03.jpg",
+          "/images/cases/4/photo-04.jpg",
+          "/images/cases/4/photo-05.jpg"
+        ]
+      },
+      {
+        title: "Кейс 5",
+        text: "Серия снимков после проведенного лечения.",
+        photos: [
+          "/images/cases/5/photo-01.jpg",
+          "/images/cases/5/photo-02.jpg",
+          "/images/cases/5/photo-03.jpg"
+        ]
+      },
+      {
+        title: "Кейс 6",
+        text: "Исходная ситуация и клинический результат.",
+        photos: [
+          "/images/cases/6/photo-01.jpg",
+          "/images/cases/6/photo-02.jpg"
+        ]
+      },
+      {
+        title: "Кейс 7",
+        text: "Финальный фотопротокол лечения.",
+        photos: [
+          "/images/cases/7/photo-01.jpg",
+          "/images/cases/7/photo-02.jpg",
+          "/images/cases/7/photo-03.jpg"
+        ]
+      }
+    ];
+    const nav = [
+      { label: "Обо мне", to: "#about" },
+      { label: "Опыт", to: "#experience" },
+      { label: "Сертификаты", to: "#certificates" },
+      { label: "Работы", to: "#works" }
+    ];
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_UIcon = _sfc_main$d;
+      const _component_UContainer = _sfc_main$2;
+      const _component_NuxtLink = __nuxt_component_0$1;
+      const _component_UButton = _sfc_main$8;
+      const _component_UCard = _sfc_main$1;
+      _push(`<div${ssrRenderAttrs(_attrs)}>`);
+      if (isLoading.value) {
+        _push(`<div class="fixed inset-0 z-50 grid place-items-center overflow-hidden bg-[#f4f8ff]"><div class="absolute left-[-10%] top-[-18%] h-[420px] w-[420px] rounded-full bg-blue-200/50 blur-3xl animate-[pulse_2.6s_ease-in-out_infinite]"></div><div class="absolute bottom-[-16%] right-[-12%] h-[480px] w-[480px] rounded-full bg-cyan-100/80 blur-3xl animate-[pulse_3.1s_ease-in-out_infinite]"></div><div class="absolute left-[45%] top-[22%] h-[260px] w-[260px] rounded-full bg-emerald-100/70 blur-3xl animate-[pulse_2.8s_ease-in-out_infinite]"></div><div class="relative flex flex-col items-center gap-7 text-center animate-[fade-up_0.7s_cubic-bezier(0.22,1,0.36,1)_both]"><div class="relative grid size-24 place-items-center"><div class="absolute inset-0 rounded-full border border-white/70 bg-white/35 shadow-[0_30px_90px_rgba(37,99,235,0.16)] backdrop-blur-2xl"></div><div class="absolute inset-2 rounded-full border-2 border-[#bfdbfe]"></div><div class="absolute inset-2 rounded-full border-2 border-transparent border-t-[#2563eb] animate-spin"></div>`);
+        _push(ssrRenderComponent(_component_UIcon, {
+          name: "i-ph-tooth-fill",
+          class: "relative size-9 text-[#2563eb]"
+        }, null, _parent));
+        _push(`</div><div><p class="text-sm font-medium uppercase tracking-[0.24em] text-[#2563eb]"> Ислам Гаев </p><p class="mt-3 text-lg text-[#4b676c]"> Подготавливаем страницу </p></div><div class="h-1.5 w-56 overflow-hidden rounded-full bg-white/70"><div class="h-full w-1/2 rounded-full bg-[#2563eb] animate-[loader-bar_1.05s_ease-in-out_infinite]"></div></div></div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      if (!isLoading.value) {
+        _push(`<main class="relative overflow-hidden bg-[#f4f8ff] text-[#0f2c33] animate-[page-in_0.7s_cubic-bezier(0.22,1,0.36,1)_both]"><div class="absolute left-[-12%] top-[-8%] h-[560px] w-[560px] rounded-full bg-blue-200/40 blur-3xl"></div><div class="absolute right-[-14%] top-[22%] h-[640px] w-[640px] rounded-full bg-emerald-100/60 blur-3xl"></div><div class="absolute bottom-[-18%] left-[18%] h-[540px] w-[540px] rounded-full bg-cyan-100/70 blur-3xl"></div>`);
+        _push(ssrRenderComponent(_component_UContainer, { class: "relative max-w-7xl px-6 py-8 md:px-10 lg:px-14" }, {
+          default: withCtx((_, _push2, _parent2, _scopeId) => {
+            if (_push2) {
+              _push2(`<header class="flex items-center justify-between rounded-full border border-white/40 bg-white/30 px-4 py-3 backdrop-blur-2xl animate-[fade-up_0.7s_cubic-bezier(0.22,1,0.36,1)_both] sm:px-6 sm:py-4"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_NuxtLink, {
+                to: "/",
+                class: "flex items-center gap-3 text-[#2563eb]",
+                "aria-label": "Ислам Гаев"
+              }, {
+                default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                  if (_push3) {
+                    _push3(ssrRenderComponent(_component_UIcon, {
+                      name: "i-ph-tooth-fill",
+                      class: "size-6 shrink-0"
+                    }, null, _parent3, _scopeId2));
+                    _push3(`<span class="text-xs font-medium tracking-[0.18em] uppercase sm:text-sm"${_scopeId2}> Ислам Гаев </span>`);
+                  } else {
+                    return [
+                      createVNode(_component_UIcon, {
+                        name: "i-ph-tooth-fill",
+                        class: "size-6 shrink-0"
+                      }),
+                      createVNode("span", { class: "text-xs font-medium tracking-[0.18em] uppercase sm:text-sm" }, " Ислам Гаев ")
+                    ];
+                  }
+                }),
+                _: 1
+              }, _parent2, _scopeId));
+              _push2(`<nav class="hidden items-center gap-8 text-sm text-[#4b5b7a] md:flex"${_scopeId}><!--[-->`);
+              ssrRenderList(nav, (item) => {
+                _push2(ssrRenderComponent(_component_NuxtLink, {
+                  key: item.to,
+                  to: item.to,
+                  class: "transition hover:text-[#2563eb]"
+                }, {
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    if (_push3) {
+                      _push3(`${ssrInterpolate(item.label)}`);
+                    } else {
+                      return [
+                        createTextVNode(toDisplayString(item.label), 1)
+                      ];
+                    }
+                  }),
+                  _: 2
+                }, _parent2, _scopeId));
+              });
+              _push2(`<!--]--></nav>`);
+              _push2(ssrRenderComponent(_component_UButton, {
+                label: "Записаться",
+                color: "primary",
+                class: "rounded-full bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#1d4ed8]",
+                ui: { base: "cursor-pointer" }
+              }, null, _parent2, _scopeId));
+              _push2(`</header><section class="relative grid items-center gap-16 py-20 md:grid-cols-[1.05fr_0.95fr] lg:py-32"${_scopeId}><div class="animate-[fade-left_0.85s_cubic-bezier(0.22,1,0.36,1)_0.1s_both]"${_scopeId}><div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/30 px-5 py-2 text-sm text-[#2563eb] backdrop-blur-xl"${_scopeId}><div class="h-2 w-2 rounded-full bg-[#2563eb]"${_scopeId}></div> Имплантолог · стоматолог-хирург </div><h1 class="max-w-4xl text-5xl font-semibold leading-[0.96] text-[#102d34] sm:text-6xl md:text-7xl lg:text-[6.4rem]"${_scopeId}><span class="block"${_scopeId}>Имплантация,</span><span class="block"${_scopeId}>хирургия</span><span class="mt-6 flex items-center gap-4 sm:mt-7 md:mt-8"${_scopeId}><span class="h-px w-10 bg-[#8ec5d0] sm:w-14 md:w-16"${_scopeId}></span><span class="grid size-10 place-items-center rounded-full border border-[#b8dfe6] bg-white/45 text-[0.34em] leading-none text-[#2563eb] backdrop-blur-xl sm:size-12"${_scopeId}> и </span><span class="text-[0.68em] font-medium leading-[0.92] text-[#2563eb]"${_scopeId}> Естественная улыбка. </span></span></h1><p class="mt-8 max-w-2xl text-lg leading-8 text-[#4b676c] md:text-xl"${_scopeId}> Меня зовут Ислам Гаев. Я стоматолог-хирург и имплантолог. Специализируюсь на имплантации, сложных удалениях и восстановлении улыбки с понятным планом лечения. </p><div class="mt-10 flex flex-wrap items-center gap-5"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UButton, {
+                label: "Записаться на консультацию",
+                color: "primary",
+                size: "xl",
+                class: "rounded-full bg-[#2563eb] px-8 py-4 text-sm font-medium text-white transition hover:scale-[1.02] hover:bg-[#1d4ed8]",
+                ui: { base: "cursor-pointer" }
+              }, null, _parent2, _scopeId));
+              _push2(`<div class="text-sm leading-6 text-[#61708f]"${_scopeId}><span class="block text-lg font-semibold text-[#102d34]"${_scopeId}>Имплантология и хирургия</span> All-on-4 · имплантация · удаление сложных зубов </div></div></div><div class="relative animate-[fade-right_0.85s_cubic-bezier(0.22,1,0.36,1)_0.2s_both]"${_scopeId}><div class="absolute -right-3 bottom-10 z-10 rounded-full border border-white/50 bg-cyan-100/70 px-7 py-5 text-center text-[#2563eb] backdrop-blur-2xl sm:-right-8"${_scopeId}><div class="text-3xl font-semibold"${_scopeId}> 4.9 </div><div class="text-xs uppercase tracking-[0.18em]"${_scopeId}> оценка </div></div><div class="overflow-hidden rounded-[3rem] border border-white/40 bg-white/20 p-3 shadow-[0_40px_120px_rgba(0,0,0,0.08)] backdrop-blur-3xl sm:p-4"${_scopeId}><img${ssrRenderAttr("src", _imports_0)} alt="Врач Ислам Гаев" class="h-[520px] w-full rounded-[2.5rem] object-cover object-top md:h-[760px]"${_scopeId}></div></div></section><section id="about" class="grid gap-16 py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.25s_both] md:grid-cols-[0.9fr_1.1fr] lg:py-24"${_scopeId}><div${_scopeId}><p class="text-sm uppercase tracking-[0.25em] text-[#6b7da6]"${_scopeId}> Личный подход </p><h2 class="mt-4 text-4xl font-semibold text-[#102d34] md:text-5xl"${_scopeId}> Современная хирургическая стоматология с понятным подходом. </h2></div><div class="space-y-10"${_scopeId}><p class="text-2xl leading-10 text-[#334e7d]"${_scopeId}> Для меня важно, чтобы пациент чувствовал спокойствие и понимал весь процесс лечения. Я подробно объясняю план, показываю варианты восстановления и подбираю решение, которое будет комфортным и долговечным. </p><div class="grid gap-4"${_scopeId}><!--[-->`);
+              ssrRenderList(principles, (item, index) => {
+                _push2(`<div class="flex items-center gap-5 border-t border-[#c9e4e6] py-5 animate-[fade-up_0.65s_cubic-bezier(0.22,1,0.36,1)_both]" style="${ssrRenderStyle({ animationDelay: `${0.35 + index * 0.08}s` })}"${_scopeId}><span class="text-sm text-[#2563eb]"${_scopeId}>0${ssrInterpolate(index + 1)}</span><span class="text-lg text-[#61708f]"${_scopeId}>${ssrInterpolate(item)}</span></div>`);
+              });
+              _push2(`<!--]--></div></div></section><section id="experience" class="grid gap-16 py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.3s_both] md:grid-cols-[0.7fr_1.3fr] lg:py-24"${_scopeId}><div${_scopeId}><p class="text-sm uppercase tracking-[0.25em] text-[#6b7da6]"${_scopeId}> Опыт и образование </p><h2 class="mt-4 text-4xl font-semibold text-[#102d34] md:text-5xl"${_scopeId}> Опыт в хирургии, имплантации и комплексном лечении. </h2></div><div class="space-y-14"${_scopeId}><!--[-->`);
+              ssrRenderList(experience, (item, index) => {
+                _push2(`<div class="flex gap-8 animate-[fade-left_0.7s_cubic-bezier(0.22,1,0.36,1)_both]" style="${ssrRenderStyle({ animationDelay: `${0.25 + index * 0.1}s` })}"${_scopeId}><div class="min-w-[96px] text-sm font-medium text-[#2563eb] sm:min-w-[110px]"${_scopeId}>${ssrInterpolate(item.year)}</div><div${_scopeId}><h3 class="text-2xl font-semibold text-[#102d34]"${_scopeId}>${ssrInterpolate(item.title)}</h3><p class="mt-3 max-w-2xl text-lg leading-8 text-[#5f6f92]"${_scopeId}>${ssrInterpolate(item.text)}</p></div></div>`);
+              });
+              _push2(`<!--]--></div></section><section id="certificates" class="py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.35s_both] lg:py-24"${_scopeId}><div class="mb-16 flex flex-col items-start justify-between gap-10 md:flex-row md:items-end"${_scopeId}><div${_scopeId}><p class="text-sm uppercase tracking-[0.25em] text-[#6b7da6]"${_scopeId}> Сертификаты </p><h2 class="mt-4 text-4xl font-semibold text-[#102d34] md:text-5xl"${_scopeId}> Дипломы, сертификаты и профессиональное обучение. </h2></div><p class="max-w-xl text-lg leading-8 text-[#5f6f92]"${_scopeId}> Документы из папки data размещены локально в public и подключены как часть страницы. </p></div><div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"${_scopeId}><!--[-->`);
+              ssrRenderList(certificates.slice(0, 3), (item, index) => {
+                _push2(ssrRenderComponent(_component_UCard, {
+                  key: item.image,
+                  class: "group relative overflow-hidden rounded-[1.5rem] border border-white/60 bg-white/45 p-0 ring-0 transition duration-300 animate-[fade-up_0.65s_cubic-bezier(0.22,1,0.36,1)_both] hover:-translate-y-1",
+                  style: { animationDelay: `${0.08 * index}s` },
+                  ui: { body: "p-0 sm:p-0" }
+                }, {
+                  default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+                    if (_push3) {
+                      _push3(`<img${ssrRenderAttr("src", item.image)}${ssrRenderAttr("alt", item.title)} class="h-[420px] w-full bg-white object-contain p-4 transition duration-700 group-hover:scale-[1.02]" loading="lazy"${_scopeId2}><div class="border-t border-[#dbeafe] p-5"${_scopeId2}><div class="mb-2 text-sm text-[#2563eb]"${_scopeId2}> 0${ssrInterpolate(index + 1)}</div><h3 class="text-lg font-semibold text-[#102d34]"${_scopeId2}>${ssrInterpolate(item.title)}</h3></div>`);
+                    } else {
+                      return [
+                        createVNode("img", {
+                          src: item.image,
+                          alt: item.title,
+                          class: "h-[420px] w-full bg-white object-contain p-4 transition duration-700 group-hover:scale-[1.02]",
+                          loading: "lazy"
+                        }, null, 8, ["src", "alt"]),
+                        createVNode("div", { class: "border-t border-[#dbeafe] p-5" }, [
+                          createVNode("div", { class: "mb-2 text-sm text-[#2563eb]" }, " 0" + toDisplayString(index + 1), 1),
+                          createVNode("h3", { class: "text-lg font-semibold text-[#102d34]" }, toDisplayString(item.title), 1)
+                        ])
+                      ];
+                    }
+                  }),
+                  _: 2
+                }, _parent2, _scopeId));
+              });
+              _push2(`<!--]--></div><div class="mt-10 flex justify-center"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UButton, {
+                to: "/certificates",
+                label: "Смотреть больше",
+                color: "primary",
+                variant: "outline",
+                size: "xl",
+                "trailing-icon": "i-lucide-arrow-right",
+                class: "rounded-full border-[#2563eb] px-7 py-3 text-[#2563eb]"
+              }, null, _parent2, _scopeId));
+              _push2(`</div></section><section id="works" class="py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.4s_both] lg:py-24"${_scopeId}><div class="mb-16"${_scopeId}><p class="text-sm uppercase tracking-[0.25em] text-[#6b7da6]"${_scopeId}> Работы </p><h2 class="mt-4 text-4xl font-semibold text-[#102d34] md:text-5xl"${_scopeId}> Клинические случаи и фотопротоколы лечения. </h2></div><div class="space-y-12"${_scopeId}><!--[-->`);
+              ssrRenderList(works.slice(0, 3), (item, index) => {
+                _push2(`<section class="border-t border-[#c9e4e6] pt-8 animate-[fade-up_0.75s_cubic-bezier(0.22,1,0.36,1)_both]" style="${ssrRenderStyle({ animationDelay: `${0.1 * index}s` })}"${_scopeId}><div class="mb-6 grid gap-4 md:grid-cols-[220px_1fr] md:items-end"${_scopeId}><div class="text-sm font-medium text-[#2563eb]"${_scopeId}> Кейс 0${ssrInterpolate(index + 1)}</div><div${_scopeId}><h3 class="text-3xl font-semibold text-[#102d34]"${_scopeId}>${ssrInterpolate(item.title)}</h3><p class="mt-3 max-w-2xl text-lg leading-8 text-[#5f6f92]"${_scopeId}>${ssrInterpolate(item.text)}</p></div></div><div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"${_scopeId}><!--[-->`);
+                ssrRenderList(item.photos.slice(0, 1), (photo) => {
+                  _push2(`<img${ssrRenderAttr("src", photo)}${ssrRenderAttr("alt", `${item.title}: фото работы`)} class="h-[280px] w-full rounded-[1.25rem] border border-white/60 bg-white/40 object-cover shadow-[0_18px_48px_rgba(15,44,51,0.08)] transition duration-500 animate-[fade-up_0.65s_cubic-bezier(0.22,1,0.36,1)_both] hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,44,51,0.12)]" loading="lazy"${_scopeId}>`);
+                });
+                _push2(`<!--]--></div></section>`);
+              });
+              _push2(`<!--]--></div><div class="mt-10 flex justify-center"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UButton, {
+                to: "/works",
+                label: "Смотреть больше",
+                color: "primary",
+                variant: "outline",
+                size: "xl",
+                "trailing-icon": "i-lucide-arrow-right",
+                class: "rounded-full border-[#2563eb] px-7 py-3 text-[#2563eb]"
+              }, null, _parent2, _scopeId));
+              _push2(`</div></section><footer class="py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.45s_both]"${_scopeId}><div class="overflow-hidden rounded-[3rem] border border-white/40 bg-[#2563eb] px-6 py-14 text-white shadow-[0_40px_120px_rgba(12,109,114,0.35)] sm:px-10 sm:py-16"${_scopeId}><div class="grid gap-12 md:grid-cols-[1fr_auto] md:items-end"${_scopeId}><div${_scopeId}><p class="text-sm uppercase tracking-[0.25em] text-cyan-100/70"${_scopeId}> Консультация врача </p><h2 class="mt-5 max-w-3xl text-4xl font-semibold leading-tight md:text-5xl"${_scopeId}> Запишитесь на прием и получите персональный план лечения. </h2></div>`);
+              _push2(ssrRenderComponent(_component_UButton, {
+                label: "Написать врачу",
+                color: "neutral",
+                size: "xl",
+                class: "rounded-full bg-white px-8 py-4 text-sm font-medium text-[#2563eb] transition hover:scale-[1.03]",
+                ui: { base: "cursor-pointer" }
+              }, null, _parent2, _scopeId));
+              _push2(`</div><div class="mt-16 flex flex-col gap-5 border-t border-white/10 pt-8 text-sm text-cyan-50/70 md:flex-row md:items-center md:justify-between"${_scopeId}><div class="flex items-center gap-3"${_scopeId}>`);
+              _push2(ssrRenderComponent(_component_UIcon, {
+                name: "i-lucide-phone",
+                class: "size-[18px]"
+              }, null, _parent2, _scopeId));
+              _push2(` +7 999 123-45-67 </div><div${_scopeId}>Ислам Гаев · стоматолог-хирург</div><div${_scopeId}>Пн-Сб · 09:00-19:00</div></div></div></footer>`);
+            } else {
+              return [
+                createVNode("header", { class: "flex items-center justify-between rounded-full border border-white/40 bg-white/30 px-4 py-3 backdrop-blur-2xl animate-[fade-up_0.7s_cubic-bezier(0.22,1,0.36,1)_both] sm:px-6 sm:py-4" }, [
+                  createVNode(_component_NuxtLink, {
+                    to: "/",
+                    class: "flex items-center gap-3 text-[#2563eb]",
+                    "aria-label": "Ислам Гаев"
+                  }, {
+                    default: withCtx(() => [
+                      createVNode(_component_UIcon, {
+                        name: "i-ph-tooth-fill",
+                        class: "size-6 shrink-0"
+                      }),
+                      createVNode("span", { class: "text-xs font-medium tracking-[0.18em] uppercase sm:text-sm" }, " Ислам Гаев ")
+                    ]),
+                    _: 1
+                  }),
+                  createVNode("nav", { class: "hidden items-center gap-8 text-sm text-[#4b5b7a] md:flex" }, [
+                    (openBlock(), createBlock(Fragment, null, renderList(nav, (item) => {
+                      return createVNode(_component_NuxtLink, {
+                        key: item.to,
+                        to: item.to,
+                        class: "transition hover:text-[#2563eb]"
+                      }, {
+                        default: withCtx(() => [
+                          createTextVNode(toDisplayString(item.label), 1)
+                        ]),
+                        _: 2
+                      }, 1032, ["to"]);
+                    }), 64))
+                  ]),
+                  createVNode(_component_UButton, {
+                    label: "Записаться",
+                    color: "primary",
+                    class: "rounded-full bg-[#2563eb] px-5 py-2.5 text-sm font-medium text-white transition hover:bg-[#1d4ed8]",
+                    ui: { base: "cursor-pointer" }
+                  })
+                ]),
+                createVNode("section", { class: "relative grid items-center gap-16 py-20 md:grid-cols-[1.05fr_0.95fr] lg:py-32" }, [
+                  createVNode("div", { class: "animate-[fade-left_0.85s_cubic-bezier(0.22,1,0.36,1)_0.1s_both]" }, [
+                    createVNode("div", { class: "mb-6 inline-flex items-center gap-2 rounded-full border border-white/50 bg-white/30 px-5 py-2 text-sm text-[#2563eb] backdrop-blur-xl" }, [
+                      createVNode("div", { class: "h-2 w-2 rounded-full bg-[#2563eb]" }),
+                      createTextVNode(" Имплантолог · стоматолог-хирург ")
+                    ]),
+                    createVNode("h1", { class: "max-w-4xl text-5xl font-semibold leading-[0.96] text-[#102d34] sm:text-6xl md:text-7xl lg:text-[6.4rem]" }, [
+                      createVNode("span", { class: "block" }, "Имплантация,"),
+                      createVNode("span", { class: "block" }, "хирургия"),
+                      createVNode("span", { class: "mt-6 flex items-center gap-4 sm:mt-7 md:mt-8" }, [
+                        createVNode("span", { class: "h-px w-10 bg-[#8ec5d0] sm:w-14 md:w-16" }),
+                        createVNode("span", { class: "grid size-10 place-items-center rounded-full border border-[#b8dfe6] bg-white/45 text-[0.34em] leading-none text-[#2563eb] backdrop-blur-xl sm:size-12" }, " и "),
+                        createVNode("span", { class: "text-[0.68em] font-medium leading-[0.92] text-[#2563eb]" }, " Естественная улыбка. ")
+                      ])
+                    ]),
+                    createVNode("p", { class: "mt-8 max-w-2xl text-lg leading-8 text-[#4b676c] md:text-xl" }, " Меня зовут Ислам Гаев. Я стоматолог-хирург и имплантолог. Специализируюсь на имплантации, сложных удалениях и восстановлении улыбки с понятным планом лечения. "),
+                    createVNode("div", { class: "mt-10 flex flex-wrap items-center gap-5" }, [
+                      createVNode(_component_UButton, {
+                        label: "Записаться на консультацию",
+                        color: "primary",
+                        size: "xl",
+                        class: "rounded-full bg-[#2563eb] px-8 py-4 text-sm font-medium text-white transition hover:scale-[1.02] hover:bg-[#1d4ed8]",
+                        ui: { base: "cursor-pointer" }
+                      }),
+                      createVNode("div", { class: "text-sm leading-6 text-[#61708f]" }, [
+                        createVNode("span", { class: "block text-lg font-semibold text-[#102d34]" }, "Имплантология и хирургия"),
+                        createTextVNode(" All-on-4 · имплантация · удаление сложных зубов ")
+                      ])
+                    ])
+                  ]),
+                  createVNode("div", { class: "relative animate-[fade-right_0.85s_cubic-bezier(0.22,1,0.36,1)_0.2s_both]" }, [
+                    createVNode("div", { class: "absolute -right-3 bottom-10 z-10 rounded-full border border-white/50 bg-cyan-100/70 px-7 py-5 text-center text-[#2563eb] backdrop-blur-2xl sm:-right-8" }, [
+                      createVNode("div", { class: "text-3xl font-semibold" }, " 4.9 "),
+                      createVNode("div", { class: "text-xs uppercase tracking-[0.18em]" }, " оценка ")
+                    ]),
+                    createVNode("div", { class: "overflow-hidden rounded-[3rem] border border-white/40 bg-white/20 p-3 shadow-[0_40px_120px_rgba(0,0,0,0.08)] backdrop-blur-3xl sm:p-4" }, [
+                      createVNode("img", {
+                        src: _imports_0,
+                        alt: "Врач Ислам Гаев",
+                        class: "h-[520px] w-full rounded-[2.5rem] object-cover object-top md:h-[760px]"
+                      })
+                    ])
+                  ])
+                ]),
+                createVNode("section", {
+                  id: "about",
+                  class: "grid gap-16 py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.25s_both] md:grid-cols-[0.9fr_1.1fr] lg:py-24"
+                }, [
+                  createVNode("div", null, [
+                    createVNode("p", { class: "text-sm uppercase tracking-[0.25em] text-[#6b7da6]" }, " Личный подход "),
+                    createVNode("h2", { class: "mt-4 text-4xl font-semibold text-[#102d34] md:text-5xl" }, " Современная хирургическая стоматология с понятным подходом. ")
+                  ]),
+                  createVNode("div", { class: "space-y-10" }, [
+                    createVNode("p", { class: "text-2xl leading-10 text-[#334e7d]" }, " Для меня важно, чтобы пациент чувствовал спокойствие и понимал весь процесс лечения. Я подробно объясняю план, показываю варианты восстановления и подбираю решение, которое будет комфортным и долговечным. "),
+                    createVNode("div", { class: "grid gap-4" }, [
+                      (openBlock(), createBlock(Fragment, null, renderList(principles, (item, index) => {
+                        return createVNode("div", {
+                          key: item,
+                          class: "flex items-center gap-5 border-t border-[#c9e4e6] py-5 animate-[fade-up_0.65s_cubic-bezier(0.22,1,0.36,1)_both]",
+                          style: { animationDelay: `${0.35 + index * 0.08}s` }
+                        }, [
+                          createVNode("span", { class: "text-sm text-[#2563eb]" }, "0" + toDisplayString(index + 1), 1),
+                          createVNode("span", { class: "text-lg text-[#61708f]" }, toDisplayString(item), 1)
+                        ], 4);
+                      }), 64))
+                    ])
+                  ])
+                ]),
+                createVNode("section", {
+                  id: "experience",
+                  class: "grid gap-16 py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.3s_both] md:grid-cols-[0.7fr_1.3fr] lg:py-24"
+                }, [
+                  createVNode("div", null, [
+                    createVNode("p", { class: "text-sm uppercase tracking-[0.25em] text-[#6b7da6]" }, " Опыт и образование "),
+                    createVNode("h2", { class: "mt-4 text-4xl font-semibold text-[#102d34] md:text-5xl" }, " Опыт в хирургии, имплантации и комплексном лечении. ")
+                  ]),
+                  createVNode("div", { class: "space-y-14" }, [
+                    (openBlock(), createBlock(Fragment, null, renderList(experience, (item, index) => {
+                      return createVNode("div", {
+                        key: item.title,
+                        class: "flex gap-8 animate-[fade-left_0.7s_cubic-bezier(0.22,1,0.36,1)_both]",
+                        style: { animationDelay: `${0.25 + index * 0.1}s` }
+                      }, [
+                        createVNode("div", { class: "min-w-[96px] text-sm font-medium text-[#2563eb] sm:min-w-[110px]" }, toDisplayString(item.year), 1),
+                        createVNode("div", null, [
+                          createVNode("h3", { class: "text-2xl font-semibold text-[#102d34]" }, toDisplayString(item.title), 1),
+                          createVNode("p", { class: "mt-3 max-w-2xl text-lg leading-8 text-[#5f6f92]" }, toDisplayString(item.text), 1)
+                        ])
+                      ], 4);
+                    }), 64))
+                  ])
+                ]),
+                createVNode("section", {
+                  id: "certificates",
+                  class: "py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.35s_both] lg:py-24"
+                }, [
+                  createVNode("div", { class: "mb-16 flex flex-col items-start justify-between gap-10 md:flex-row md:items-end" }, [
+                    createVNode("div", null, [
+                      createVNode("p", { class: "text-sm uppercase tracking-[0.25em] text-[#6b7da6]" }, " Сертификаты "),
+                      createVNode("h2", { class: "mt-4 text-4xl font-semibold text-[#102d34] md:text-5xl" }, " Дипломы, сертификаты и профессиональное обучение. ")
+                    ]),
+                    createVNode("p", { class: "max-w-xl text-lg leading-8 text-[#5f6f92]" }, " Документы из папки data размещены локально в public и подключены как часть страницы. ")
+                  ]),
+                  createVNode("div", { class: "grid gap-6 sm:grid-cols-2 lg:grid-cols-3" }, [
+                    (openBlock(true), createBlock(Fragment, null, renderList(certificates.slice(0, 3), (item, index) => {
+                      return openBlock(), createBlock(_component_UCard, {
+                        key: item.image,
+                        class: "group relative overflow-hidden rounded-[1.5rem] border border-white/60 bg-white/45 p-0 ring-0 transition duration-300 animate-[fade-up_0.65s_cubic-bezier(0.22,1,0.36,1)_both] hover:-translate-y-1",
+                        style: { animationDelay: `${0.08 * index}s` },
+                        ui: { body: "p-0 sm:p-0" }
+                      }, {
+                        default: withCtx(() => [
+                          createVNode("img", {
+                            src: item.image,
+                            alt: item.title,
+                            class: "h-[420px] w-full bg-white object-contain p-4 transition duration-700 group-hover:scale-[1.02]",
+                            loading: "lazy"
+                          }, null, 8, ["src", "alt"]),
+                          createVNode("div", { class: "border-t border-[#dbeafe] p-5" }, [
+                            createVNode("div", { class: "mb-2 text-sm text-[#2563eb]" }, " 0" + toDisplayString(index + 1), 1),
+                            createVNode("h3", { class: "text-lg font-semibold text-[#102d34]" }, toDisplayString(item.title), 1)
+                          ])
+                        ]),
+                        _: 2
+                      }, 1032, ["style"]);
+                    }), 128))
+                  ]),
+                  createVNode("div", { class: "mt-10 flex justify-center" }, [
+                    createVNode(_component_UButton, {
+                      to: "/certificates",
+                      label: "Смотреть больше",
+                      color: "primary",
+                      variant: "outline",
+                      size: "xl",
+                      "trailing-icon": "i-lucide-arrow-right",
+                      class: "rounded-full border-[#2563eb] px-7 py-3 text-[#2563eb]"
+                    })
+                  ])
+                ]),
+                createVNode("section", {
+                  id: "works",
+                  class: "py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.4s_both] lg:py-24"
+                }, [
+                  createVNode("div", { class: "mb-16" }, [
+                    createVNode("p", { class: "text-sm uppercase tracking-[0.25em] text-[#6b7da6]" }, " Работы "),
+                    createVNode("h2", { class: "mt-4 text-4xl font-semibold text-[#102d34] md:text-5xl" }, " Клинические случаи и фотопротоколы лечения. ")
+                  ]),
+                  createVNode("div", { class: "space-y-12" }, [
+                    (openBlock(true), createBlock(Fragment, null, renderList(works.slice(0, 3), (item, index) => {
+                      return openBlock(), createBlock("section", {
+                        key: item.title,
+                        class: "border-t border-[#c9e4e6] pt-8 animate-[fade-up_0.75s_cubic-bezier(0.22,1,0.36,1)_both]",
+                        style: { animationDelay: `${0.1 * index}s` }
+                      }, [
+                        createVNode("div", { class: "mb-6 grid gap-4 md:grid-cols-[220px_1fr] md:items-end" }, [
+                          createVNode("div", { class: "text-sm font-medium text-[#2563eb]" }, " Кейс 0" + toDisplayString(index + 1), 1),
+                          createVNode("div", null, [
+                            createVNode("h3", { class: "text-3xl font-semibold text-[#102d34]" }, toDisplayString(item.title), 1),
+                            createVNode("p", { class: "mt-3 max-w-2xl text-lg leading-8 text-[#5f6f92]" }, toDisplayString(item.text), 1)
+                          ])
+                        ]),
+                        createVNode("div", { class: "grid gap-4 sm:grid-cols-2 lg:grid-cols-3" }, [
+                          (openBlock(true), createBlock(Fragment, null, renderList(item.photos.slice(0, 1), (photo) => {
+                            return openBlock(), createBlock("img", {
+                              key: photo,
+                              src: photo,
+                              alt: `${item.title}: фото работы`,
+                              class: "h-[280px] w-full rounded-[1.25rem] border border-white/60 bg-white/40 object-cover shadow-[0_18px_48px_rgba(15,44,51,0.08)] transition duration-500 animate-[fade-up_0.65s_cubic-bezier(0.22,1,0.36,1)_both] hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(15,44,51,0.12)]",
+                              loading: "lazy"
+                            }, null, 8, ["src", "alt"]);
+                          }), 128))
+                        ])
+                      ], 4);
+                    }), 128))
+                  ]),
+                  createVNode("div", { class: "mt-10 flex justify-center" }, [
+                    createVNode(_component_UButton, {
+                      to: "/works",
+                      label: "Смотреть больше",
+                      color: "primary",
+                      variant: "outline",
+                      size: "xl",
+                      "trailing-icon": "i-lucide-arrow-right",
+                      class: "rounded-full border-[#2563eb] px-7 py-3 text-[#2563eb]"
+                    })
+                  ])
+                ]),
+                createVNode("footer", { class: "py-20 animate-[fade-up_0.8s_cubic-bezier(0.22,1,0.36,1)_0.45s_both]" }, [
+                  createVNode("div", { class: "overflow-hidden rounded-[3rem] border border-white/40 bg-[#2563eb] px-6 py-14 text-white shadow-[0_40px_120px_rgba(12,109,114,0.35)] sm:px-10 sm:py-16" }, [
+                    createVNode("div", { class: "grid gap-12 md:grid-cols-[1fr_auto] md:items-end" }, [
+                      createVNode("div", null, [
+                        createVNode("p", { class: "text-sm uppercase tracking-[0.25em] text-cyan-100/70" }, " Консультация врача "),
+                        createVNode("h2", { class: "mt-5 max-w-3xl text-4xl font-semibold leading-tight md:text-5xl" }, " Запишитесь на прием и получите персональный план лечения. ")
+                      ]),
+                      createVNode(_component_UButton, {
+                        label: "Написать врачу",
+                        color: "neutral",
+                        size: "xl",
+                        class: "rounded-full bg-white px-8 py-4 text-sm font-medium text-[#2563eb] transition hover:scale-[1.03]",
+                        ui: { base: "cursor-pointer" }
+                      })
+                    ]),
+                    createVNode("div", { class: "mt-16 flex flex-col gap-5 border-t border-white/10 pt-8 text-sm text-cyan-50/70 md:flex-row md:items-center md:justify-between" }, [
+                      createVNode("div", { class: "flex items-center gap-3" }, [
+                        createVNode(_component_UIcon, {
+                          name: "i-lucide-phone",
+                          class: "size-[18px]"
+                        }),
+                        createTextVNode(" +7 999 123-45-67 ")
+                      ]),
+                      createVNode("div", null, "Ислам Гаев · стоматолог-хирург"),
+                      createVNode("div", null, "Пн-Сб · 09:00-19:00")
+                    ])
+                  ])
+                ])
+              ];
+            }
+          }),
+          _: 1
+        }, _parent));
+        _push(`</main>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</div>`);
+    };
+  }
+});
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+
+export { _sfc_main as default };
+//# sourceMappingURL=index-CtnhBqfJ.mjs.map
