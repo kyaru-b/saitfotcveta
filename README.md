@@ -59,6 +59,16 @@ pnpm preview
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
 
+## Docker
+
+Build and run the site in a container:
+
+```bash
+docker compose up --build
+```
+
+The site will be available at `http://localhost:3000`.
+
 ## Renovate integration
 
 Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.
