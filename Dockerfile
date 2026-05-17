@@ -8,6 +8,12 @@ ENV PORT=3000
 
 COPY --chown=node:node .output ./.output
 
+WORKDIR /app/.output/server
+
+RUN npm install --omit=dev --no-audit --no-fund
+
+WORKDIR /app
+
 EXPOSE 3000
 
 USER node
