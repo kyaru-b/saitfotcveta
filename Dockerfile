@@ -1,25 +1,4 @@
-FROM node:22-alpine AS base
-
-ENV PNPM_HOME="/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-
-RUN corepack enable
-
-WORKDIR /app
-
-FROM base AS deps
-
-COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-RUN pnpm install --frozen-lockfile
-
-FROM deps AS build
-
-ENV NODE_OPTIONS=--max-old-space-size=2048
-
-COPY . .
-RUN pnpm build
-
-FROM node:22-alpine AS runtime
+FROM node:22-alpine
 
 WORKDIR /app
 
@@ -27,7 +6,7 @@ ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=3000
 
-COPY --from=build --chown=node:node /app/.output ./.output
+COPY --chown=node:node .output ./.output
 
 EXPOSE 3000
 

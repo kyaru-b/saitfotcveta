@@ -64,12 +64,11 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 Build and run the site in a container:
 
 ```bash
+pnpm build
 docker compose up --build
 ```
 
 The site will be available at `http://localhost:3000`.
-
-If the target server has very little memory, build the image on a machine with at least 2 GB available to Docker or enable swap before building.
 
 ## Renovate integration
 
