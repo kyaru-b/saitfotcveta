@@ -69,6 +69,8 @@ docker compose up --build
 
 The site will be available at `http://localhost:3000`.
 
+If the target server has very little memory, build the image on a machine with at least 2 GB available to Docker or enable swap before building.
+
 ## Renovate integration
 
 Install [Renovate GitHub app](https://github.com/apps/renovate/installations/select_target) on your repository and you are good to go.

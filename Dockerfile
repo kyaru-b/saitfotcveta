@@ -14,6 +14,8 @@ RUN pnpm install --frozen-lockfile
 
 FROM deps AS build
 
+ENV NODE_OPTIONS=--max-old-space-size=2048
+
 COPY . .
 RUN pnpm build
 
@@ -25,8 +27,10 @@ ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=3000
 
-COPY --from=build /app/.output ./.output
+COPY --from=build --chown=node:node /app/.output ./.output
 
 EXPOSE 3000
+
+USER node
 
 CMD ["node", ".output/server/index.mjs"]
